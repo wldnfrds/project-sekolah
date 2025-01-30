@@ -11,6 +11,7 @@ class Testimoni extends Model
         'author_name',
         'content',
         'rating',
+        'info',
         'status',
     ];
 

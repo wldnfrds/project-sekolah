@@ -18,6 +18,7 @@ return new class extends Migration
             $table->text('content');
             $table->unsignedTinyInteger('rating')->nullable();
             $table->enum('status', ['pending', 'approved', 'rejected'])->default('pending');
+            $table->string('info');
             $table->string('img_author')->nullable();
             $table->timestamps();
 

@@ -24,14 +24,10 @@ class AboutResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-information-circle';
     protected static ?string $label = 'Tentang';
-
-    public static function getNavigationGroup(): ?string
-    {
-        return null;
-    }
+    protected static ?string $navigationGroup = 'Navigasi';
     public static function getNavigationSort(): ?int
     {
-        return 3;
+        return 4;
     }
 
     public static function form(Form $form): Form

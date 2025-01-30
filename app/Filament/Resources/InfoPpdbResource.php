@@ -22,6 +22,13 @@ class InfoPpdbResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-information-circle';
     protected static ?string $label = 'Info PPDB';
 
+    protected static ?string $navigationGroup = 'PPDB';
+
+    public static function getNavigationSort(): ?int
+    {
+        return 1;
+    }
+
     public static function form(Form $form): Form
     {
         return $form

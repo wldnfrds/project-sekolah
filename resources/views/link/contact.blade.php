@@ -18,7 +18,7 @@
         <nav class="breadcrumbs">
             <div class="container">
                 <ol>
-                    <li><a href="index.html">beranda</a></li>
+                    <li><a href="{{ url('/') }}">Beranda</a></li>
                     <li class="current">Kontak</li>
                 </ol>
             </div>
@@ -44,8 +44,7 @@
                         <i class="flex-shrink-0 bi bi-geo-alt"></i>
                         <div>
                             <h3>Alamat</h3>
-                            <p>{{ $contact->address }}
-                            </p>
+                            <p>{!! $contact->address !!}</p>
                         </div>
                     </div><!-- End Info Item -->
 

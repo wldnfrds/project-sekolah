@@ -50,7 +50,6 @@
                         <li><i class="bi bi-check-circle"></i> <span>Teknologi mesin otomotif terkini</span></li>
                         <li><i class="bi bi-check-circle"></i> <span>Diagnostik kerusakan kendaraan</span></li>
                         <li><i class="bi bi-check-circle"></i> <span>Pengelasan dan teknik pemeliharaan</span></li>
-                        <li><i class="bi bi-check-circle"></i> <span>Sistem elektronik kendaraan (EFI)</span></li>
                     </ul>
                 </div>
 
@@ -72,10 +71,6 @@
                                 <li class="mb-2">
                                     <i class="bi bi-car-front fs-5 text-success me-2"></i>
                                     Pelatihan langsung menggunakan kendaraan aktual.
-                                </li>
-                                <li class="mb-2">
-                                    <i class="bi bi-patch-check fs-5 text-warning me-2"></i>
-                                    Program sertifikasi nasional di bidang otomotif.
                                 </li>
                                 <li>
                                     <i class="bi bi-building fs-5 text-info me-2"></i>

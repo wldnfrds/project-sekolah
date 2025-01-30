@@ -25,6 +25,13 @@ class LanggananResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-bell-alert';
     protected static ?string $label = 'Langganan';
 
+    protected static ?string $navigationGroup = 'Lainnya';
+
+    public static function getNavigationSort(): ?int
+    {
+        return 10;
+    }
+
     public static function form(Form $form): Form
     {
         return $form

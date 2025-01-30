@@ -25,13 +25,10 @@ class NewsResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-newspaper';
     protected static ?string $label = 'Berita';
 
-    public static function getNavigationGroup(): ?string
-    {
-        return null;
-    }
+    protected static ?string $navigationGroup = 'Navigasi';
     public static function getNavigationSort(): ?int
     {
-        return 5;
+        return 6;
     }
 
     public static function form(Form $form): Form

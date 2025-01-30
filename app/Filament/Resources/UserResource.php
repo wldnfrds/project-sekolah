@@ -4,8 +4,11 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\UserResource\Pages;
 use App\Filament\Resources\UserResource\RelationManagers;
+use App\Models\FormSubmit;
 use App\Models\User;
 use Filament\Forms;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -21,6 +24,13 @@ class UserResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-users';
     protected static ?string $label = 'Murid';
 
+    protected static ?string $navigationGroup = 'User';
+
+    public static function getNavigationSort(): ?int
+    {
+        return 3;
+    }
+
     public static function getEloquentQuery(): Builder
     {
         // Filter hanya pengguna dengan role 'student'
@@ -31,7 +41,32 @@ class UserResource extends Resource
     {
         return $form
             ->schema([
-                //
+                TextInput::make('name')
+                    ->label('Nama'),
+                TextInput::make('email')
+                    ->label('Email'),
+                Select::make('kelas')
+                    ->label('Kelas')
+                    ->options([
+                        'X' => 'X',
+                        'XI' => 'XI',
+                        'XII' => 'XII',
+                    ]),
+                Select::make('formSubmit.first_major')
+                    ->label('Jurusan')
+                    ->options([
+                        'RPL' => 'RPL',
+                        'TKR' => 'TKR',
+                        'BDP' => 'BDP',
+                    ])
+                    ->searchable()
+                    ->placeholder('Pilih Jurusan')
+                    ->afterStateUpdated(function ($state, $set, $record) {
+                        if ($record) {
+                            $record->formSubmit()->updateOrCreate([], ['first_major' => $state]);
+                        }
+                    })
+
             ]);
     }
 
@@ -45,6 +80,7 @@ class UserResource extends Resource
                     ->searchable(),
                 TextColumn::make('email')
                     ->label('Email'),
+                TextColumn::make('kelas'),
                 TextColumn::make('FormSubmit.first_major')
                     ->label('Jurusan')
                     ->searchable(),

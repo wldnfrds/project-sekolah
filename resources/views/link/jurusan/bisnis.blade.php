@@ -50,7 +50,7 @@
                                 manajemen toko online.</span></li>
                         <li><i class="bi bi-check-circle"></i> <span>Analisis pasar digital</span></li>
                         <li><i class="bi bi-check-circle"></i> <span><span class="fst-italic">Content marketing</span>
-                                dan CEO</span></li>
+                                dan SEO</span></li>
                         <li><i class="bi bi-check-circle"></i> <span>Pengelolaan media sosial untuk bisnis</span></li>
                     </ul>
                 </div>
@@ -78,10 +78,6 @@
                                 <li class="mb-2">
                                     <i class="bi bi-globe fs-5 text-warning me-2"></i>
                                     Pelatihan penggunaan <span class="fst-italic">platform</span> bisnis digital.
-                                </li>
-                                <li>
-                                    <i class="bi bi-trophy fs-5 text-info me-2"></i>
-                                    Peluang mengikuti kompetisi nasional dan internasional di bidang pemasaran digital.
                                 </li>
                             </ul>
                         </div>

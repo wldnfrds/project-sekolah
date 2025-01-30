@@ -13,7 +13,7 @@ class TestimoniPolicy
      */
     public function viewAny(User $user): bool
     {
-        return $user->isAdmin();
+        return true;
     }
 
     /**
@@ -21,7 +21,7 @@ class TestimoniPolicy
      */
     public function view(User $user, Testimoni $testimoni): bool
     {
-        return $user->isAdmin();
+        return true;
     }
 
     /**
@@ -29,7 +29,7 @@ class TestimoniPolicy
      */
     public function create(User $user): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -37,7 +37,7 @@ class TestimoniPolicy
      */
     public function update(User $user, Testimoni $testimoni): bool
     {
-        return $user->isAdmin();
+        return true;
     }
 
     /**
@@ -45,7 +45,7 @@ class TestimoniPolicy
      */
     public function delete(User $user, Testimoni $testimoni): bool
     {
-        return $user->isAdmin();
+        return true;
     }
 
     /**
@@ -53,7 +53,7 @@ class TestimoniPolicy
      */
     public function restore(User $user, Testimoni $testimoni): bool
     {
-        return $user->isAdmin();
+        return true;
     }
 
     /**
@@ -61,6 +61,6 @@ class TestimoniPolicy
      */
     public function forceDelete(User $user, Testimoni $testimoni): bool
     {
-        return $user->isAdmin();
+        return true;
     }
 }

@@ -17,6 +17,16 @@
             </div>
 
             <div class="mb-3">
+                <label for="info" class="form-label">Keterangan</label>
+                <select name="info" id="info" class="form-select">
+                    <option value="">Pilih Keterangan</option>
+                    <option value="alumni">Alumni</option>
+                    <option value="orang_tua">Orang Tua</option>
+                </select>
+            </div>
+
+
+            <div class="mb-3">
                 <label for="content" class="form-label">Isi Testimoni</label>
                 <textarea class="form-control @error('content') is-invalid @enderror" id="content" name="content" rows="4"
                     placeholder="Tulis testimoni Anda di sini...">{{ old('content') }}</textarea>

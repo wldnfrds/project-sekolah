@@ -37,56 +37,75 @@
                 <!-- Profile Menu - Now part of mobile nav -->
                 @auth
                     <li class="d-xl-none dropdown">
+                        <!-- Profile Link -->
                         <a href="#" class="d-flex align-items-center">
                             <img src="{{ asset('assets/img/ユーザーアイコンさんメーカー.jpg') }}" alt="Profile"
                                 class="rounded-circle me-2" width="40" height="40">
                             <span>{{ auth()->user()->name }}</span>
                             <i class="bi bi-chevron-down toggle-dropdown"></i>
                         </a>
-                        <ul>
-                            <li>
-                                <a class="dropdown-item" href="{{ route('filament.admin.pages.dashboard') }}">
-                                    Dashboard
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="{{ route('student.dashboard') }}">Notifikasi
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ route('testimoni') }}" class="dropdown-item">Testimoni</a>
-                            </li>
-                            <form id="logout-form" method="POST" action="{{ route('logout') }}">
-                                @csrf
-                            </form>
 
-                            <button type="button" class="dropdown-item" id="logout-button">Logout</button>
+                        <!-- Dropdown Menu -->
+                        <ul class="dropdown-menu">
+                            @if (auth()->user()->role === 'admin')
+                                <li>
+                                    <a class="dropdown-item" href="{{ route('filament.admin.pages.dashboard') }}">
+                                        <i class="bi bi-house-door me-2"></i> Dashboard Admin
+                                    </a>
+                                </li>
+                            @elseif(auth()->user()->role === 'student' || auth()->user()->role === 'user')
+                                <li>
+                                    <a class="dropdown-item"
+                                        href="{{ route('filament.murid.resources.form-submits.index') }}">
+                                        <i class="bi bi-house-door me-2"></i> Dashboard Murid
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="{{ route('student.dashboard') }}">
+                                        <i class="bi bi-bell me-2"></i> Notifikasi
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('filament.murid.resources.testimonis.index') }}"
+                                        class="dropdown-item">
+                                        <i class="bi bi-chat-dots me-2"></i> Testimoni
+                                    </a>
+                                </li>
+                            @endif
 
-                            <script>
-                                document.getElementById('logout-button').addEventListener('click', function(e) {
-                                    e.preventDefault(); // Mencegah tombol langsung submit
-                                    Swal.fire({
-                                        title: 'Apakah Anda yakin?',
-                                        text: "Anda akan keluar dari sesi ini.",
-                                        icon: 'warning',
-                                        showCancelButton: true,
-                                        confirmButtonColor: '#3085d6',
-                                        cancelButtonColor: '#d33',
-                                        confirmButtonText: 'Ya, logout!',
-                                        cancelButtonText: 'Batal'
-                                    }).then((result) => {
-                                        if (result.isConfirmed) {
-                                            // Submit form logout
-                                            document.getElementById('logout-form').submit();
-                                        }
-                                    });
-                                });
-                            </script>
-
+                            <!-- Logout -->
+                            <li>
+                                <form id="logout-form" method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                </form>
+                                <button type="button" class="dropdown-item" id="logout-button">
+                                    <i class="bi bi-box-arrow-right me-2"></i> Logout
+                                </button>
+                            </li>
+                        </ul>
                     </li>
-                </ul>
-                </li>
-            @endauth
+
+                    <!-- Logout Script -->
+                    <script>
+                        document.getElementById('logout-button').addEventListener('click', function(e) {
+                            e.preventDefault();
+                            Swal.fire({
+                                title: 'Apakah Anda yakin?',
+                                text: "Anda akan keluar dari sesi ini.",
+                                icon: 'warning',
+                                showCancelButton: true,
+                                confirmButtonColor: '#3085d6',
+                                cancelButtonColor: '#d33',
+                                confirmButtonText: 'Ya, logout!',
+                                cancelButtonText: 'Batal'
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    document.getElementById('logout-form').submit();
+                                }
+                            });
+                        });
+                    </script>
+                @endauth
             </ul>
 
             <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
@@ -103,19 +122,29 @@
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
                     <li>
-                        <a class="dropdown-item" href="{{ route('filament.admin.pages.dashboard') }}">
-                            <i class="bi bi-house-door me-2"></i> Dashboard
-                        </a>
-                    </li>
+                        @if (auth()->check() && auth()->user()->role === 'admin')
+                            <a class="dropdown-item" href="{{ route('filament.admin.pages.dashboard') }}">
+                                <i class="bi bi-house-door me-2"></i> Dashboard Admin
+                            </a>
+                        @elseif(auth()->check() && (auth()->user()->role === 'student' || auth()->user()->role === 'user'))
+                            <a class="dropdown-item" href="{{ route('filament.murid.resources.form-submits.index') }}">
+                                <i class="bi bi-house-door me-2"></i> Dashboard Murid
+                            </a>
+
                     <li>
                         <a class="dropdown-item" href="{{ route('student.dashboard') }}">
-                            <i class="bi bi-bell me-2"></i> notifikasi
+                            <i class="bi bi-bell me-2"></i> Notifikasi
                         </a>
                     </li>
+
                     <li>
-                        <a href="{{ route('testimoni') }}" class="dropdown-item"><i class="bi bi-chat-dots me-2"></i>
-                            Testimoni</a>
+                        <a href="{{ route('filament.murid.resources.testimonis.index') }}" class="dropdown-item">
+                            <i class="bi bi-chat-dots me-2"></i> Testimoni
+                        </a>
                     </li>
+                    @endif
+                    </li>
+
                     <li>
                         <button id="logoutButton" class="dropdown-item">
                             <i class="bi bi-box-arrow-right me-2"></i> Logout

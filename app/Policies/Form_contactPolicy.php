@@ -29,7 +29,7 @@ class Form_contactPolicy
      */
     public function create(User $user): bool
     {
-        return $user->isAdmin();
+        return false;
     }
 
     /**

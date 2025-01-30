@@ -19,7 +19,9 @@
                     $user = auth()->user();
                     $formSubmit = App\Models\FormSubmit::where('user_id', $user->id)->first();
                 @endphp
-                @if ($formSubmit)
+                @if ($user->role === 'admin')
+                    <a href="{{ route('filament.admin.pages.dashboard') }}" class="btn-get-started">Dashboard Admin</a>
+                @elseif ($formSubmit)
                     <a href="{{ route('student.dashboard') }}" class="btn-get-started">Hasil Pendaftaran</a>
                 @else
                     <a href="{{ route('syarat') }}" class="btn-get-started">Daftar Baru Siswa</a>
@@ -28,6 +30,7 @@
                 <a href="{{ route('syarat') }}" class="btn-get-started">Daftar Baru Siswa</a>
             @endauth
         </div>
+
 
     </div>
 

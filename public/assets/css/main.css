@@ -60,6 +60,11 @@
 .shadow-blue {
   box-shadow: 2px 2px 5px hsla(209, 98%, 59%, 0.5);
 }
+/* Efek hover untuk elemen dengan kelas shadow-green */
+.btn.shadow-green:hover {
+  box-shadow: 2px 2px 5px hsla(118, 100%, 50%, 0.473);
+}
+
 
 
 /*--------------------------------------------------------------
@@ -434,7 +439,8 @@ h6 {
   }
 
   .navmenu a,
-  .navmenu a:focus {
+  .navmenu a:focus,
+  .navmenu .dropdown-item {
       color: var(--nav-dropdown-background-color);
       padding: 10px 20px;
       font-family: var(--nav-font);
@@ -442,27 +448,26 @@ h6 {
       font-weight: 500;
       display: flex;
       align-items: center;
-      justify-content: space-between;
       white-space: nowrap;
       transition: 0.3s;
   }
 
-  /* Profile specific styles in mobile menu */
+  /* Perbaikan untuk alignment icon dan text */
+  .navmenu .dropdown-item i {
+      width: 20px;
+      margin-right: 10px;
+      text-align: center;
+  }
+
+  /* Profile specific styles */
   .navmenu .dropdown a img {
+      width: 40px;
+      height: 40px;
       margin-right: 10px;
   }
 
-  .navmenu .dropdown form button {
-      background: none;
-      border: none;
-      width: 100%;
-      text-align: left;
-      padding: 10px 20px;
-      color: var(--nav-dropdown-background-color);
-      font-family: var(--nav-font);
-      font-size: 17px;
-      font-weight: 500;
-  }
+  /* Button styles */
+  .navmenu .dropdown form button,
   .navmenu .dropdown button {
       background: none;
       border: none;
@@ -473,18 +478,27 @@ h6 {
       font-family: var(--nav-font);
       font-size: 17px;
       font-weight: 500;
+      display: flex;
+      align-items: center;
   }
 
-  .navmenu .dropdown form button:hover {
+  .navmenu .dropdown form button i,
+  .navmenu .dropdown button i {
+      width: 20px;
+      margin-right: 10px;
+      text-align: center;
+  }
+
+  .navmenu .dropdown form button:hover,
+  .navmenu .dropdown button:hover {
       color: var(--nav-dropdown-hover-color);
   }
 
-  /* Rest of your existing mobile styles... */
-  .navmenu a i,
-  .navmenu a:focus i {
+  /* Dropdown toggle icon */
+  .navmenu a i.toggle-dropdown {
       font-size: 12px;
       line-height: 0;
-      margin-left: 5px;
+      margin-left: auto;
       width: 30px;
       height: 30px;
       display: flex;
@@ -495,8 +509,7 @@ h6 {
       background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
   }
 
-  .navmenu a i:hover,
-  .navmenu a:focus i:hover {
+  .navmenu a i.toggle-dropdown:hover {
       background-color: var(--accent-color);
       color: var(--contrast-color);
   }
@@ -507,8 +520,8 @@ h6 {
       color: var(--nav-dropdown-hover-color);
   }
 
-  .navmenu .active i,
-  .navmenu .active:focus i {
+  .navmenu .active i.toggle-dropdown,
+  .navmenu .active:focus i.toggle-dropdown {
       background-color: var(--accent-color);
       color: var(--contrast-color);
       transform: rotate(180deg);
@@ -524,15 +537,12 @@ h6 {
       transition: all 0.5s ease-in-out;
   }
 
-  .navmenu .dropdown ul ul {
-      background-color: rgba(33, 37, 41, 0.1);
-  }
-
   .navmenu .dropdown>.dropdown-active {
       display: block;
       background-color: rgba(33, 37, 41, 0.03);
   }
 
+  /* Mobile nav active states */
   .mobile-nav-active {
       overflow: hidden;
   }

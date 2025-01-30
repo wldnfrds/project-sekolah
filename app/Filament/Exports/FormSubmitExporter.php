@@ -25,7 +25,6 @@ class FormSubmitExporter extends Exporter
             ExportColumn::make('religion'),
             ExportColumn::make('address'),
             ExportColumn::make('phone_number'),
-            ExportColumn::make('email'),
             ExportColumn::make('father_name'),
             ExportColumn::make('father_job'),
             ExportColumn::make('mother_name'),

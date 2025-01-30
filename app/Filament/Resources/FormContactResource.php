@@ -29,6 +29,7 @@ class FormContactResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-envelope-open';
     protected static ?string $label = 'Form Kontak';
 
+
     function cleanUTF8($value)
     {
         // Cek apakah encoding UTF-8 valid
@@ -41,10 +42,7 @@ class FormContactResource extends Resource
     }
 
 
-    public static function getNavigationGroup(): ?string
-    {
-        return null;
-    }
+    protected static ?string $navigationGroup = 'Kontak';
     public static function getNavigationSort(): ?int
     {
         return 8;
@@ -86,7 +84,6 @@ class FormContactResource extends Resource
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),
-                Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([

@@ -21,7 +21,7 @@
         <nav class="breadcrumbs">
             <div class="container">
                 <ol>
-                    <li><a href="{{ url('/') }}">beranda</a></li>
+                    <li><a href="{{ url('/') }}">Beranda</a></li>
                     <li class="current">Berita</li>
                 </ol>
             </div>

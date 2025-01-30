@@ -23,10 +23,7 @@ class ContactResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-envelope';
     protected static ?string $label = 'Kontak';
 
-    public static function getNavigationGroup(): ?string
-    {
-        return null;
-    }
+    protected static ?string $navigationGroup = 'Kontak';
     public static function getNavigationSort(): ?int
     {
         return 7;
@@ -45,7 +42,8 @@ class ContactResource extends Resource
                     ->required(),
                 TextInput::make('email')
                     ->required()
-                    ->label('Email'),
+                    ->label('Email')
+                    ->email(),
             ]);
     }
 

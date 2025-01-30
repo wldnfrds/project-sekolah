@@ -24,11 +24,17 @@ class HomeController extends Controller
         $newsCount = News::count();
         $teachersCount = teacher::count();
 
-        return view('welcome', compact('teachers', 'usersCount', 'newsCount', 'teachersCount'));
+        $testimoni = Testimoni::where('status', 'approved')
+            ->orderBy('created_at', 'desc')
+            ->take(6)
+            ->get();
+
+        return view('welcome', compact('teachers', 'usersCount', 'newsCount', 'teachersCount', 'testimoni'));
     }
     public function tentang()
     {
-        $usersCount = User::count();
+        $title = 'Tentang';
+        $usersCount = User::where('role', 'student')->count();
         $newsCount = News::count();
         $teachersCount = teacher::count();
 
@@ -36,9 +42,9 @@ class HomeController extends Controller
 
         $testimoni = Testimoni::where('status', 'approved')
             ->orderBy('created_at', 'desc')
-            ->take(5)
+            ->take(6)
             ->get();
-        return view('link.about', compact('about', 'usersCount', 'newsCount', 'teachersCount', 'testimoni'));
+        return view('link.about', compact('about', 'usersCount', 'newsCount', 'teachersCount', 'testimoni', 'title'));
     }
 
     public function guru()
@@ -77,8 +83,6 @@ class HomeController extends Controller
             'subject' => 'required|string|max:255',
             'message' => 'required|string|max:1000',
         ]);
-        // Ambil ID pengguna saat ini
-        $userId = auth()->id();  // Mendapatkan ID pengguna yang sedang login
 
         // Simpan data ke database dengan relasi ke pengguna
         Form_contact::create([
@@ -86,12 +90,11 @@ class HomeController extends Controller
             'email' => $request->email,
             'subject' => $request->subject,
             'message' => $request->message,
-            'user_id' => $userId,  // Relasi dengan User
             'updated_at' => now(),
             'created_at' => now(),
         ]);
 
-        return redirect()->back()->with('success', 'Your message has been sent. Thank you!');
+        return redirect()->back()->with('success', 'Pesan Anda telah terkirim. Terima kasih!');
     }
 
     public function dashboard()

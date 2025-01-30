@@ -13,7 +13,7 @@ class MajorsPolicy
      */
     public function viewAny(User $user): bool
     {
-        return $user->isAdmin();
+        return false;
     }
 
     /**
@@ -21,7 +21,7 @@ class MajorsPolicy
      */
     public function view(User $user, Majors $majors): bool
     {
-        return $user->isAdmin();
+        return false;
     }
 
     /**
@@ -29,7 +29,7 @@ class MajorsPolicy
      */
     public function create(User $user): bool
     {
-        return $user->isAdmin();
+        return false;
     }
 
     /**
@@ -37,7 +37,7 @@ class MajorsPolicy
      */
     public function update(User $user, Majors $majors): bool
     {
-        return $user->isAdmin();
+        return false;
     }
 
     /**
@@ -45,7 +45,7 @@ class MajorsPolicy
      */
     public function delete(User $user, Majors $majors): bool
     {
-        return $user->isAdmin();
+        return false;
     }
 
     /**
@@ -53,7 +53,7 @@ class MajorsPolicy
      */
     public function restore(User $user, Majors $majors): bool
     {
-        return $user->isAdmin();
+        return false;
     }
 
     /**
@@ -61,6 +61,6 @@ class MajorsPolicy
      */
     public function forceDelete(User $user, Majors $majors): bool
     {
-        return $user->isAdmin();
+        return false;
     }
 }

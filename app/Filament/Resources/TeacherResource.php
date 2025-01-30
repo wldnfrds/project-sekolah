@@ -26,13 +26,10 @@ class TeacherResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-users';
     protected static ?string $label = 'Guru';
 
-    public static function getNavigationGroup(): ?string
-    {
-        return null;
-    }
+    protected static ?string $navigationGroup = 'Navigasi';
     public static function getNavigationSort(): ?int
     {
-        return 4;
+        return 5;
     }
 
     public static function form(Form $form): Form

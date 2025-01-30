@@ -106,7 +106,7 @@ class PpdbController extends Controller
         // Simpan data ke tabel `form_submits`
         FormSubmit::create($validatedData);
 
-        return redirect()->route('filament.admin.pages.dashboard')->with('success', 'Formulir berhasil dikirim!');
+        return redirect()->route('student.dashboard')->with('success', 'Formulir berhasil dikirim!');
     }
 
 

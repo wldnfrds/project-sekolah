@@ -40,7 +40,11 @@
                 title: 'Berhasil!',
                 text: "{{ session('success') }}",
                 icon: 'success',
-                confirmButtonText: 'OK'
+                confirmButtonText: 'OK',
+                customClass: {
+                    popup: 'bg-blue-400', // Menambahkan kelas untuk latar belakang biru
+                    confirmButton: 'bg-blue-700 text-white', // Menambahkan kelas untuk tombol konfirmasi biru
+                }
             });
         </script>
     @endif

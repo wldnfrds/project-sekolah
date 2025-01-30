@@ -13,7 +13,7 @@ Route::get('/tentang', [HomeController::class, 'tentang'])->name('tentang');
 Route::get('/guru', [HomeController::class, 'guru'])->name('guru');
 Route::get('/berita', [HomeController::class, 'acara'])->name('acara');
 Route::get('/kontak', [HomeController::class, 'kontak'])->name('kontak');
-Route::post('/kontak', [HomeController::class, 'store'])->name('contact.store')->middleware('auth');
+Route::post('/kontak', [HomeController::class, 'store'])->name('contact.store');
 
 Route::get('/berita/{id}', [HomeController::class, 'show'])->name('news.show');
 

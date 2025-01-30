@@ -3,8 +3,8 @@
     <div class="container mt-5">
         <!-- Hero Section -->
         <div class="p-5 text-center rounded hero-section bg-light">
-            <h1 class="display-4 text-primary"><span class="fw-bold">Selamat Datang</span> <br>
-                di <span class="fw-bold">SMKS Pasundan Cijulang</span></h1>
+            <h1 class="display-4 text-primary"><span class="fw-bold">Selamat Datang <br>
+                    di SMKS Pasundan Cijulang</span></h1>
             <p class="lead text-secondary">Bersama kami, raihlah masa depan cerah dengan pendidikan berkualitas dan
                 pengalaman belajar yang menyenangkan.</p>
 
@@ -36,7 +36,11 @@
                 icon: 'warning',
                 title: 'Harap Login Terlebih Dahulu',
                 text: 'Anda perlu login untuk melanjutkan ke pendaftaran.',
-                confirmButtonText: 'OK'
+                confirmButtonText: 'OK',
+                customClass: {
+                    popup: 'bg-blue-400', // Menambahkan kelas untuk latar belakang biru
+                    confirmButton: 'bg-blue-700 text-white', // Menambahkan kelas untuk tombol konfirmasi biru
+                }
             });
         });
 
@@ -45,7 +49,11 @@
                 icon: 'warning',
                 title: 'Harap Login Terlebih Dahulu',
                 text: 'Anda perlu login untuk melanjutkan ke pendaftaran.',
-                confirmButtonText: 'OK'
+                confirmButtonText: 'OK',
+                customClass: {
+                    popup: 'bg-blue-400', // Menambahkan kelas untuk latar belakang biru
+                    confirmButton: 'bg-blue-700 text-white', // Menambahkan kelas untuk tombol konfirmasi biru
+                }
             });
         });
     </script>

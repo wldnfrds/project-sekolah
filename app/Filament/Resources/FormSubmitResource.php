@@ -31,10 +31,8 @@ class FormSubmitResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-paper-airplane';
     protected static ?string $label = 'Form PPDB';
 
-    public static function getNavigationGroup(): ?string
-    {
-        return null;
-    }
+    protected static ?string $navigationGroup = 'PPDB';
+
     public static function getNavigationSort(): ?int
     {
         return 2;
@@ -81,8 +79,8 @@ class FormSubmitResource extends Resource
                 TextInput::make('phone_number')
                     ->label('No Hp'),
 
-                TextInput::make('email')
-                    ->label('Email'),
+                // TextInput::make('email')
+                //     ->label('Email'),
 
                 TextInput::make('father_name')
                     ->label('Nama Ayah'),

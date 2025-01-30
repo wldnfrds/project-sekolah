@@ -18,6 +18,9 @@
                                 </div>
                                 <h1 class="text-dark fw-bold">SELAMAT</h1>
                                 <p class="lead">Anda diterima di SMKS Pasundan Cijulang</p>
+                                <a href="{{ route('filament.murid.resources.form-submits.index') }}"
+                                    class="btn btn-outline-primary shadow-green"> Informasi
+                                    lebih lanjut.</a>
                             </div>
                         </div>
                     @elseif($formSubmit->status == 'pending')
@@ -28,7 +31,7 @@
                                 </div>
                                 <h1 class="fw-bold">Formulir Anda Terkirim</h1>
                                 <p class="lead">Saat ini sedang dalam pengecekan oleh Tim.</p>
-                                <a href="{{ route('filament.admin.resources.form-submits.index') }}"
+                                <a href="{{ route('filament.murid.resources.form-submits.index') }}"
                                     class="btn btn-outline-success">Konfirmasi
                                     Disini <i class="bi bi-house fa-lg"></i></a>
                             </div>
